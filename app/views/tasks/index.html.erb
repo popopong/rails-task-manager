@@ -1,6 +1,7 @@
 <ul>
   <% @tasks.each do |task| %>
-  <li><%= task.completed == true ? "☑ #{task.title}" : "☐ #{task.title}"%></li>
+  <% box = task.completed == true ? "☑" : "☐" %>
+    <li><%= link_to "#{box}#{task.title}", task_path(task) %></li>
   <% end %>
 </ul>
 
