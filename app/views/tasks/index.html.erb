@@ -1,7 +1,15 @@
-<ul>
-  <% @tasks.each do |task| %>
-  <% box = task.completed == true ? "☑" : "☐" %>
-    <li><%= link_to "#{box}#{task.title}", task_path(task) %></li>
-  <% end %>
-</ul>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-6 p-5">
+      <ul>
+        <% @tasks.each do |task| %>
+        <% box = task.completed == true ? "☑" : "☐" %>
+          <li class="pb-1"><%= "#{box} " %><%= link_to "#{task.title}", task_path(task) %><%= link_to "🗑", task_path(task), method: :delete, data: { confirm: "Delete #{task.title}?" } %> </li>
+        <% end %>
+        <hr>
+        <%= link_to "Create a new task", new_task_path, class: "btn btn-primary" %>
+      </ul>
+    </div>
+  </div>
+</div>
 
