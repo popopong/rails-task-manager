@@ -1,0 +1,6 @@
+<ul>
+  <% @tasks.each do |task| %>
+  <li><%= task.completed == true ? "☑ #{task.title}" : "☐ #{task.title}"%></li>
+  <% end %>
+</ul>
+
